@@ -1,0 +1,1 @@
+# ConferencePlanner-obsolete-Net6
