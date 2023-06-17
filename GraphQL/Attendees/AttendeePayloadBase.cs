@@ -8,6 +8,7 @@ namespace ConferencePlanner.GraphQL.Attendees
     {
         protected AttendeePayloadBase(Attendee attendee)
         {
+            Attendee = attendee;
         }
 
         protected AttendeePayloadBase(IReadOnlyList<UserError> errors)
