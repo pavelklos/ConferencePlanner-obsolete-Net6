@@ -70,6 +70,8 @@ namespace GraphQL.Tests
                 // .EnableRelaySupport()
                 .AddGlobalObjectIdentification()
 
+                .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = true)
+
                 .BuildSchemaAsync();
 
             // assert
@@ -129,6 +131,8 @@ namespace GraphQL.Tests
 
                 // .EnableRelaySupport()
                 .AddGlobalObjectIdentification()
+
+                .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = true)
 
                 .BuildRequestExecutorAsync();
 
@@ -208,6 +212,8 @@ namespace GraphQL.Tests
                 // .EnableRelaySupport()
                 //.AddGlobalObjectIdentification()
 
+                .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = true)
+
                 .Services
                 .BuildServiceProvider();
 
@@ -226,6 +232,92 @@ namespace GraphQL.Tests
                             ) {
                             attendee {
                                 id
+                            }
+                            }
+                        }
+                    ")
+                    .Create());
+
+            // assert
+            result.ToJson().MatchSnapshot();
+        }
+
+        [Fact]
+        public async Task Add_Track_By_Services()
+        {
+            // arrange
+            IServiceProvider services = new ServiceCollection()
+
+                .AddPooledDbContextFactory<ApplicationDbContext>(
+                    options => options.UseInMemoryDatabase("Data Source=conferences.db"))
+                .AddGraphQL()
+
+                .AddQueryType()
+                .AddMutationType()
+                //.AddSubscriptionType()
+
+                .AddTypeExtension<TrackQueries>()
+                .AddTypeExtension<TrackMutations>()
+                .AddTypeExtension<TrackNode>()
+                .AddDataLoader<TrackByIdDataLoader>()
+
+                .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = true)
+
+                .Services
+                .BuildServiceProvider();
+
+            // act
+            IExecutionResult result = await services.ExecuteRequestAsync(
+                QueryRequestBuilder.New()
+                    .SetQuery(@"
+                        mutation Add_Track {
+                          addTrack(input: { name: ""TRACK 1"" }) {
+                            track {
+                              id
+                              name
+                            }
+                          }
+                        }
+                    ")
+                    .Create());
+
+            // assert
+            result.ToJson().MatchSnapshot();
+        }
+
+        [Fact]
+        public async Task Get_Tracks_By_Services()
+        {
+            // arrange
+            IServiceProvider services = new ServiceCollection()
+
+                .AddPooledDbContextFactory<ApplicationDbContext>(
+                    options => options.UseInMemoryDatabase("Data Source=conferences.db"))
+                .AddGraphQL()
+
+                .AddQueryType()
+                .AddMutationType()
+                //.AddSubscriptionType()
+
+                .AddTypeExtension<TrackQueries>()
+                .AddTypeExtension<TrackMutations>()
+                .AddTypeExtension<TrackNode>()
+                .AddDataLoader<TrackByIdDataLoader>()
+
+                .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = true)
+
+                .Services
+                .BuildServiceProvider();
+
+            // act
+            IExecutionResult result = await services.ExecuteRequestAsync(
+                QueryRequestBuilder.New()
+                    .SetQuery(@"
+                        query Get_Tracks {
+                            tracks {
+                            nodes {
+                                id
+                                name
                             }
                             }
                         }

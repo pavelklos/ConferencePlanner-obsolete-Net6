@@ -10,7 +10,11 @@
       ],
       "path": [
         "registerAttendee"
-      ]
+      ],
+      "extensions": {
+        "message": "No service for type \u0027Microsoft.EntityFrameworkCore.IDbContextFactory\u00601[ConferencePlanner.GraphQL.Data.ApplicationDbContext]\u0027 has been registered.",
+        "stackTrace": "   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)\r\n   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)\r\n   at HotChocolate.Types.EntityFrameworkObjectFieldDescriptorExtensions.\u003C\u003Ec__DisplayClass2_1\u00601.\u003C\u003CUseDbContext\u003Eb__4\u003Ed.MoveNext()\r\n--- End of stack trace from previous location ---\r\n   at HotChocolate.Execution.Processing.Tasks.ResolverTask.ExecuteResolverPipelineAsync(CancellationToken cancellationToken)\r\n   at HotChocolate.Execution.Processing.Tasks.ResolverTask.TryExecuteAsync(CancellationToken cancellationToken)"
+      }
     }
   ]
 }
