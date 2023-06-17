@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.Tests", "GraphQL.Tests\GraphQL.Tests.csproj", "{97B46B33-D12B-4A81-98B7-039030A12791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,18 @@ Global
 		{9CC0FB4B-0FB8-430F-9B19-2D3B9AFF64C5}.Release|x64.Build.0 = Release|Any CPU
 		{9CC0FB4B-0FB8-430F-9B19-2D3B9AFF64C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{9CC0FB4B-0FB8-430F-9B19-2D3B9AFF64C5}.Release|x86.Build.0 = Release|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Debug|x64.Build.0 = Debug|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Debug|x86.Build.0 = Debug|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Release|x64.ActiveCfg = Release|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Release|x64.Build.0 = Release|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Release|x86.ActiveCfg = Release|Any CPU
+		{97B46B33-D12B-4A81-98B7-039030A12791}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
